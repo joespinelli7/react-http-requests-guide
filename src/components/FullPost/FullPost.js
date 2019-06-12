@@ -25,6 +25,13 @@ class FullPost extends Component {
       }
     }
 
+    deletePostHandler = () => {
+      axios.delete('https://jsonplaceholder.typicode.com/posts/' + this.props.id)
+        .then(res => {
+          console.log(res)
+        })
+    }
+
     // line 25-25: first we get id(which we check on line 25) then after we render the actual loadedPost(line 26)
     // b/c the fetch call is asynchronous. So we input a loading message for the initial clicking of the id(line 25),
     // then output the actual post(line 26) when it is updated in state.
@@ -39,7 +46,7 @@ class FullPost extends Component {
             <h1>{this.state.loadedPost.title}</h1>
             <p>{this.state.body}</p>
             <div className="Edit">
-            <button className="Delete">Delete</button>
+            <button onClick={this.deletePostHandler} className="Delete">Delete</button>
             </div>
             </div>
 
