@@ -8,7 +8,8 @@ import './Blog.css';
 class Blog extends Component {
     state = {
       posts: [],
-      selectedPostId: null
+      selectedPostId: null,
+      error: false
     }
 
     componentDidMount() {
@@ -25,6 +26,12 @@ class Blog extends Component {
             posts: updatedPosts
             // console.log(res)
           });
+        })
+        .catch(error => {
+          // console.log(error)
+          this.setState({
+            error: true
+          })
         });
     }
 
@@ -34,15 +41,21 @@ class Blog extends Component {
       });
     }
 
+    // using catch in line 30 to catch any errors and if we do render line 46 b/c we're getting an error
+    // trying to make the GET request. However, if there is no error in GET request then we render all
+    // posts smoothly.
     render () {
-        const posts = this.state.posts.map(post => {
-          return <Post
-                    key={post.id}
-                    title={post.title}
-                    author={post.author}
-                    clicked={() => this.postSelectedHandler(post.id)}
-                 />
-        });
+        let posts = <p style={{textAlign: 'center'}}>Something went wrong :(</p>;
+        if (!this.state.error) {
+          posts = this.state.posts.map(post => {
+            return <Post
+                      key={post.id}
+                      title={post.title}
+                      author={post.author}
+                      clicked={() => this.postSelectedHandler(post.id)}
+                   />
+          });
+        }
 
         return (
             <div>
