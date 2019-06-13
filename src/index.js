@@ -6,7 +6,10 @@ import registerServiceWorker from './registerServiceWorker';
 import axios from 'axios';
 
 axios.defaults.baseURL = 'https://jsonplaceholder.typicode.com';
+// simply the general headers set for all types of requests. You can use this to set an Auth Token for example.
 axios.defaults.headers.common['Authorization'] = 'AUTH TOKEN';
+// set headers for specific request types (POST here), where you want to set it as a specific Content-type
+// anytime a POST request is sent.
 axios.defaults.headers.post['Content-Type'] = 'application/json';
 
 // using interceptors: functions that execute for every request leaving your app and every response returning
