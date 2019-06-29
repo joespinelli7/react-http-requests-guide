@@ -12,7 +12,7 @@ class Posts extends React.Component {
   // trying to make the GET request. However, if there is no error in GET request then we render all
   // posts smoothly.
   componentDidMount() {
-    console.log(this.props)
+    // console.log(this.props)
     axios.get('/posts')
       .then(res => {
         const posts = res.data.slice(0, 4);
