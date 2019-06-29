@@ -31,4 +31,9 @@ class Blog extends Component {
     }
 }
 
+// Use relative paths if you want to navigate relative to your existing path.
+// <Link to={props.match.url + '/new'}>  will lead to example.com/posts/new  when placing this link in a
+// component loaded on /posts . If you'd use the same <Link>  in a component loaded via /all-posts ,
+// the link would point to /all-posts/new.
+
 export default Blog;
