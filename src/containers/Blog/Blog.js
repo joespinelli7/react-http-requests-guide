@@ -18,10 +18,10 @@ class Blog extends Component {
                             to="/"
                             exact
                             activeClassName="my-active"
-                            /*activeStyle={{
+                            activeStyle={{
                               color: '#fa923f',
                               textDecoration: 'underline'
-                            }}*/>Home</NavLink>
+                            }}>Home</NavLink>
                       </li>
                       <li><NavLink to={{
                         pathname: '/new-post',

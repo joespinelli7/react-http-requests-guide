@@ -7,14 +7,14 @@ class FullPost extends Component {
       loadedPost: null
     }
 
-    componentDidUpdate() {
+    componentDidMount() {
       //1st check(line 13): to see if we're being passed down an id of post being clicked
       //2nd check(line 14): to see if we don't have a loadedPost already or if we do have a loadedPost
       // but then it also has a different id than the id we plan on loading. Prevents infinite network loop
       // so component doesn't keep updating.
-      if(this.props.id) {
+      if(this.props.match.params.id) {
         if( !this.state.loadedPost || this.state.loadedPost.id !== this.props.id ) {
-          axios.get('/posts/' + this.props.id)
+          axios.get('/posts/' + this.props.match.params.id)
             .then(res => {
               // console.log(res)
               this.setState({
