@@ -3,7 +3,6 @@ import './Blog.css';
 import Posts from './Posts/Posts';
 import { Route, NavLink, Switch } from 'react-router-dom';
 import NewPost from './NewPost/NewPost';
-import FullPost from './FullPost/FullPost';
 
 class Blog extends Component {
     render () {
@@ -15,7 +14,7 @@ class Blog extends Component {
                       {/* use link instead of <a> tag in React to avoid page reloading and therefore
                         losing any previous state. Instead re-renders JS to dom but w/o resetting state. */}
                       <li><NavLink
-                            to="/"
+                            to="/posts"
                             exact
                             activeClassName="my-active"
                             activeStyle={{
@@ -35,12 +34,9 @@ class Blog extends Component {
                 <Route path="/" exact render={() => <h1>Home 2</h1>} /> */}
                 {/*wrap w/ SWITCH so it goes to first route that matches a given path and won't render
                 any othe routes*/}
-                <Route path="/" exact component={Posts}/>
                 <Switch>
                   <Route path="/new-post" component={NewPost}/>
-                  {/* path="/:id" (:id) creates a flexible path that can be whatever you designate, so must
-                   go before any other similar routes, (such as "/new-post" above)*/}
-                  <Route path="/:id" exact component={FullPost}/>
+                  <Route path="/posts" component={Posts}/>
                 </Switch>
             </div>
         );
