@@ -7,11 +7,13 @@ class FullPost extends Component {
       loadedPost: null
     }
 
+    // loaded initially based off first data the page receives
     componentDidMount() {
       console.log(this.props);
       this.loadData();
     }
 
+    // gets called b/c props changed so therefore will update and check to display correct post on page
     componentDidUpdate() {
       this.loadData();
     }
