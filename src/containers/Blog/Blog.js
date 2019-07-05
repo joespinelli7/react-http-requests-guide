@@ -43,6 +43,7 @@ class Blog extends Component {
                     to New Posts page. */}
                   {this.state.auth ? <Route path="/new-post" component={NewPost}/> : null}
                   <Route path="/posts" component={Posts}/>
+                  <Route render={() => <h1 style={{textAlign: 'center'}}>Error: Page not found <span>😢</span></h1>} />
                   {/* redirects from a certain route to a route you specify. Only specify from if using
                     Redirect in a switch statement. */}
                   {/*<Redirect from="/" to="/posts" /> */}
