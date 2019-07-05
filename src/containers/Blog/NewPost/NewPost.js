@@ -24,6 +24,9 @@ class NewPost extends Component {
       axios.post('/posts', data)
         .then(res => {
           console.log(res);
+          // following line is another way to redirect page back to /posts after submitting.
+          // (have access to props.history.push from <BrowserRouter> in App.js)
+          // this.props.history.push('/posts');
           this.setState({
             submitted: true
           })
