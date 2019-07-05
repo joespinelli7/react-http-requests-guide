@@ -5,6 +5,10 @@ import { Route, NavLink, Switch , Redirect} from 'react-router-dom';
 import NewPost from './NewPost/NewPost';
 
 class Blog extends Component {
+  state = {
+    auth: false
+  }
+
     render () {
         return (
             <div className="Blog">
@@ -35,11 +39,13 @@ class Blog extends Component {
                 {/*wrap w/ SWITCH so it goes to first route that matches a given path and won't render
                 any othe routes*/}
                 <Switch>
-                  <Route path="/new-post" component={NewPost}/>
+                  {/* using a guard to check if user is authenticated and if not, does not have access
+                    to New Posts page. */}
+                  {this.state.auth ? <Route path="/new-post" component={NewPost}/> : null}
                   <Route path="/posts" component={Posts}/>
                   {/* redirects from a certain route to a route you specify. Only specify from if using
                     Redirect in a switch statement. */}
-                  <Redirect from="/" to="/posts" />
+                  {/*<Redirect from="/" to="/posts" /> */}
                   {/*<Route path="/" component={Posts}/>*/}
                 </Switch>
             </div>
