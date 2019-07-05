@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import './Blog.css';
 import Posts from './Posts/Posts';
-import { Route, NavLink, Switch } from 'react-router-dom';
+import { Route, NavLink, Switch , Redirect} from 'react-router-dom';
 import NewPost from './NewPost/NewPost';
 
 class Blog extends Component {
@@ -37,6 +37,10 @@ class Blog extends Component {
                 <Switch>
                   <Route path="/new-post" component={NewPost}/>
                   <Route path="/posts" component={Posts}/>
+                  {/* redirects from a certain route to a route you specify. Only specify from if using
+                    Redirect in a switch statement. */}
+                  <Redirect from="/" to="/posts" />
+                  {/*<Route path="/" component={Posts}/>*/}
                 </Switch>
             </div>
         );
