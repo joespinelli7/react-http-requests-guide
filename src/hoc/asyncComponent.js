@@ -1,4 +1,4 @@
-// this component should help to only load components asynchronosly (i.e. only when it is needed)
+// this component should help to only load components asynchronously (i.e. only when it is needed)
 import React from 'react';
 
 const asyncComponent = (importComponent) => {

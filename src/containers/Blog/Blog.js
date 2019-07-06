@@ -6,6 +6,9 @@ import { Route, NavLink, Switch , Redirect} from 'react-router-dom';
 import asyncComponent from '../../hoc/asyncComponent';
 
 const AsyncNewPost = asyncComponent(() => {
+  // dynamic import syntax: means whatever comes between the parentheses is only imported when the function
+  // is executed, which in this case will only be executed when AsyncNewPost is rendered to the page.
+  // this is how you load components asynchronously.
   return import('./NewPost/NewPost');
 });
 
