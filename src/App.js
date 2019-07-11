@@ -12,7 +12,7 @@ class App extends Component {
       // example.com/my-app then you'd want to include basename as shown below. Otherwise, if not indicated,
       // <BrowserRouter /> automatically takes a default basename="/".
       // <BrowserRouter basename="/my-app">
-      <BrowserRouter>
+      <BrowserRouter >
         <div className="App">
           <Blog />
         </div>

@@ -54,8 +54,8 @@ class Blog extends Component {
                   <Route render={() => <h1 style={{textAlign: 'center'}}>Error: Page not found <span>😢</span></h1>} />
                   {/* redirects from a certain route to a route you specify. Only specify from if using
                     Redirect in a switch statement. */}
-                  {/*<Redirect from="/" to="/posts" /> */}
-                  {/*<Route path="/" component={Posts}/>*/}
+                  {/* <Redirect from="/" to="/posts" /> */}
+                  {/* <Route path="/" component={Posts}/> */}
                 </Switch>
             </div>
         );
